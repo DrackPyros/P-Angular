@@ -1,0 +1,11 @@
+<div id="background" class="col-6 bg-dark" >
+    <div class="draggable" id="1">
+        <div class="content">
+            <h2 class="text-center">Pega el código del &#60;iframe&#62; aquí</h2>
+            <div class="mx-auto">
+                <input type="text" name="caja" #caja="ngModel" [(ngModel)]="frame.url"><br/>
+                <button class="btn btn-primary" (click)="onSubmit()">Crealo</button>
+            </div>
+        </div>
+    </div>
+</div>

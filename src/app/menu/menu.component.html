@@ -1,18 +1,19 @@
-<p>menu works!</p>
-<!-- <div class="hole"> -->
-    <div id="menu">
-        <ul>
-            <li><button onclick="Creacaja()">Nueva caja</button></li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-        </ul>
+<div id="menu" class="bg-dark">
+    <div class="title">
+        <h2 class="text-light text-center">SpaceBoard</h2>
     </div>
-    <div id="background" >
-        <div class="draggable">
-            <div contenteditable="true" id="message">
-                Pipoelperro
-            </div>
-        </div>
+    <div class="main row">
+        <button class="btn btn-light col-5">Login</button>
+        <button class="btn btn-light col-5">Save</button>
+        <button class="btn btn-light col-5">Light</button>
+        <button class="btn btn-light col-5">Info</button>
     </div>
-<!-- </div>  -->
+    <ul>
+        <li><button class="btn btn-light" (click)="Creacaja()">Calendario</button></li>
+        <li><button class="btn btn-light" (click)="Creacaja()">Twitter app</button></li>
+        <li><button class="btn btn-light" (click)="Creacaja()">Youtube video</button></li>
+        <li><button class="btn btn-light" (click)="Creacaja()">Twitch stream</button></li>
+        <li><button class="btn btn-light" (click)="Creacaja()">Caja basica</button></li>
+    </ul>
+</div>
+
