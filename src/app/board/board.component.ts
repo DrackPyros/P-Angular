@@ -21,7 +21,7 @@ export class BoardComponent{
     this.frame= { url:"", width:"", height:"" }
    }
 
-  onSubmit(){
+  onSubmit(i : number){
     console.log(this.frame.url);
     // console.log($(this).attr('id'));
     
@@ -37,26 +37,16 @@ export class BoardComponent{
 
   // ---------------------------------------------
   // f = "<iframe width='560' height='315' src='https://www.youtube.com/embed/JdeJ-ct6S4E' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
-  // console.log("a = "+frase);
   // crearframe(f);
   
   validate(f: string){
-    // var frase = document.forms["pipo"]["pep"].value;
     var frase = f;
     console.log();
-
-    frase = frase.replace(/\"/g, "'");
-    // console.log("b = "+frase);
-    // console.log(typeof(frase2));    
+    frase = frase.replace(/\"/g, "'");  
     this.crearframe(frase);
   }
 
   crearframe(frase: string){
-
-    // if(f == frase2){
-    //     console.log("iguales");
-    // }
-    
     var frase2 = frase.split(" ");
     var a = "-1";
 
@@ -93,10 +83,11 @@ export class BoardComponent{
     // console.log(typeof(he));
 
     // ----------------------------------------------
+    var back = document.getElementsByClassName("content"); // Coger id para crear iframe en la caja
+
     var frame = document.createElement("iframe");
     frame.style.width = wi;
     frame.style.height = he;
-    // frame.style.border = 0;
     frame.setAttribute("src", url);
 
     console.log(frame);
