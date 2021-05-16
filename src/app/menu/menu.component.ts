@@ -10,9 +10,12 @@ export class MenuComponent implements OnInit{
 
     public a: number;
 
+    public condition = true;
+
     constructor() {
         this.a = 0;
     }
+
     ngOnInit(): void{
         this.Creacaja(5);
     }
@@ -41,7 +44,7 @@ export class MenuComponent implements OnInit{
         // Lienzo
         var back = document.getElementById("background");
         
-        if( i == 4){ // If Twitch Stream
+        if( i == 4 ){ // If Twitch Stream
             // Crear caja
             var box = document.createElement('div');
 
@@ -122,8 +125,8 @@ export class MenuComponent implements OnInit{
 
             var f = document.createElement("input");
             f.setAttribute("type", "text");
-            f.setAttribute("#caja", "ngModel");
-            f.setAttribute("[(ngModel)]", "frame.url");
+            // f.setAttribute("#caja", "ngModel");
+            // f.setAttribute("[(ngModel)]", "frame.url");
             
             // Propiedades del boton
             var b = document.createElement("button");
@@ -131,7 +134,10 @@ export class MenuComponent implements OnInit{
             b.innerText = "Crealo";
             b.addEventListener("click", () => {
                 // b.onclick = onSubmit(i); // especificar la funcion onSubmit de boardComponent
-                alert($(this).attr('id'));
+                $(document).ready(function() {
+                    alert ("Hola Mundo"); 
+                });
+                // alert($(this).attr('id'));
             });
 
             // Appends
@@ -145,5 +151,36 @@ export class MenuComponent implements OnInit{
         back.appendChild(box);
         this.a += 1;
         this.prop();
+    }
+    Lightmode(){
+        var element = document.body;
+        var button = document.getElementsByClassName("btn-light");
+        
+        element.classList.replace("bg-light", "bg-dark");
+        // element.classList.remove("bg-dark");
+
+        for( let i = 0; i< button.length; i++){
+            console.log(i);
+            button[i].classList.replace("btn-light", "btn-dark");
+            // element.classList.remove("btn-light");
+        }
+        
+        this.condition = false;
+
+    }
+    Darkmode(){
+        var element = document.body;
+        var button = document.getElementsByClassName("btn-dark");
+        element.classList.replace("bg-dark", "bg-light");
+        // element.classList.remove("bg-light");
+
+
+        for( let i = 0; i< button.length; i++){
+            console.log(i);
+            button[i].classList.replace("btn-dark", "btn-light");
+            // element.classList.remove("btn-dark");
+        }
+
+        this.condition = true;
     }
 }

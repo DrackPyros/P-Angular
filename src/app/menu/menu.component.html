@@ -1,11 +1,13 @@
-<div id="menu" class="bg-dark">
+<div id="menu" >
     <div class="title">
-        <h2 class="text-light text-center">SpaceBoard</h2>
+        <h2 class="text-light text-center bg-dark">SpaceBoard</h2>
     </div>
     <div class="main row">
         <button class="btn btn-light col-5">Login</button>
         <button class="btn btn-light col-5">Save</button>
-        <button class="btn btn-light col-5">Light</button>
+        
+        <button *ngIf="condition; else elseBlock" class="btn btn-light col-5" (click)="Lightmode()">Light</button>
+        <ng-template #elseBlock><button class="btn btn-light col-5" (click)="Darkmode()">Dark</button></ng-template>
         <button class="btn btn-light col-5">Info</button>
     </div>
     <ul>
