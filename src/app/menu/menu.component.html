@@ -1,21 +1,61 @@
+<div id="responsive">
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler button-span" type="button" data-bs-toggle="collapse" data-bs-target="#menu-externo" aria-controls="menu-externo" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="animated-icon2">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="title">
+            <h2>SpaceBoard</h2>
+        </div>
+    </nav>
+    <div class="collapse navbar-collapse bg-dark" id="menu-externo">
+        <div class="p-4">
+            <div>
+                <div class="main row">
+                    <button class="btn btn-light col-5"><i class="fas fa-user"></i></button>
+                    <button class="btn btn-light col-5" (click)="saveCajas()"><i class="far fa-save"></i></button>
+                    <button *ngIf="condition; else elseBlock" class="btn btn-light col-5" (click)="Lightmode()"><i class="far fa-lightbulb"></i></button>
+                    <ng-template #elseBlock><button class="btn btn-light col-5" (click)="Darkmode()"><i class="fas fa-lightbulb"></i></button></ng-template>
+                    <button class="btn btn-light col-5"><i class="fas fa-info"></i></button>
+                </div>
+                <div class="xico row">
+                    <button class="btn btn-light col-5" (click)="Creacaja(1)"><i class="far fa-calendar-plus"></i></button>
+                    <button class="btn btn-light col-5" (click)="Creacaja(2)"><i class="fab fa-twitter"></i></button>
+                    <button class="btn btn-light col-5" (click)="Creacaja(3)"><i class="fab fa-youtube"></i></button>
+                    <button class="btn btn-light col-5" (click)="Creacaja(4)"><i class="fab fa-twitch"></i></button>
+                    <button class="btn btn-light col-5" (click)="Creacaja(5)"><i class="far fa-window-restore"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="menu" >
     <div class="title">
         <h2 class="text-light text-center bg-dark">SpaceBoard</h2>
     </div>
     <div class="main row">
-        <button class="btn btn-light col-5">Login</button>
-        <button class="btn btn-light col-5">Save</button>
-        
-        <button *ngIf="condition; else elseBlock" class="btn btn-light col-5" (click)="Lightmode()">Light</button>
-        <ng-template #elseBlock><button class="btn btn-light col-5" (click)="Darkmode()">Dark</button></ng-template>
-        <button class="btn btn-light col-5">Info</button>
+        <button class="btn btn-light col-5"><i class="fas fa-user"></i></button>
+        <button class="btn btn-light col-5" (click)="saveCajas()"><i class="far fa-save"></i></button>
+        <button *ngIf="condition; else elseBlock" class="btn btn-light col-5" (click)="Lightmode()"><i class="far fa-lightbulb"></i></button>
+        <ng-template #elseBlock><button class="btn btn-light col-5" (click)="Darkmode()"><i class="fas fa-lightbulb"></i></button></ng-template>
+        <button class="btn btn-light col-5"><i class="fas fa-info"></i></button>
     </div>
-    <ul>
-        <li><button class="btn btn-light" (click)="Creacaja(1)">Calendario</button></li>
-        <li><button class="btn btn-light" (click)="Creacaja(2)">Twitter app</button></li>
-        <li><button class="btn btn-light" (click)="Creacaja(3)">Youtube video</button></li>
-        <li><button class="btn btn-light" (click)="Creacaja(4)">Twitch stream</button></li>
-        <li><button class="btn btn-light" (click)="Creacaja(5)">Caja basica</button></li>
-    </ul>
+    <div class="grande row">
+        <button class="btn btn-light col-12" (click)="Creacaja(1)">Calendario</button>
+        <button class="btn btn-light col-12" (click)="Creacaja(2)">Twitter app</button>
+        <button class="btn btn-light col-12" (click)="Creacaja(3)">Youtube video</button>
+        <button class="btn btn-light col-12" (click)="Creacaja(4)">Twitch stream</button>
+        <button class="btn btn-light col-12" (click)="Creacaja(5)">Nueva Caja</button>
+    </div>
+    <div class="xico row">
+        <button class="btn btn-light col-5" (click)="Creacaja(1)"><i class="far fa-calendar-plus"></i></button>
+        <button class="btn btn-light col-5" (click)="Creacaja(2)"><i class="fab fa-twitter"></i></button>
+        <button class="btn btn-light col-5" (click)="Creacaja(3)"><i class="fab fa-youtube"></i></button>
+        <button class="btn btn-light col-5" (click)="Creacaja(4)"><i class="fab fa-twitch"></i></button>
+        <button class="btn btn-light col-5" (click)="Creacaja(5)"><i class="far fa-window-restore"></i></button>
+    </div>
 </div>
-

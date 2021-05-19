@@ -17,25 +17,65 @@ export class MenuComponent implements OnInit{
     }
 
     ngOnInit(): void{
-        this.Creacaja(5);
+        if (localStorage.getItem("x")){
+            this.loadCajas();
+        }
+        else
+            this.Creacaja(5);
+    }
+
+    saveCajas(){
+        var c = document.getElementsByClassName("draggable");
+        var wi = [];
+        var he = [];
+
+        var x = [];
+        var y = [];
+        
+        for(let el = 0; el < c.length; el++) {
+            wi[el] = c[el].clientWidth;
+            // x[el] = c[el].offsetLeft;
+            he[el] = c[el].clientHeight;
+            // y[el] = c[el].offsetTop;
+        }
+        localStorage.setItem("x", wi.toString());
+        localStorage.setItem("y", he.toString());
+
+        console.log(localStorage.getItem("x"));
+        console.log(localStorage.getItem("y"));
+    }
+
+    loadCajas(){
+        var back = document.getElementById("background");
+        x = localStorage.getItem("x");
+        var x = x.split(",");
+        y = localStorage.getItem("y");
+        var y = y.split(",");
+
+        for(let i = 0; i< x.length; i++){
+            // console.log(i);
+            let box = document.createElement("div");
+            box.style.width = x[i]+"px";
+            box.style.height = y[i]+"px";
+
+            box.classList.add("draggable");
+            // console.log(box);
+            back.appendChild(box);
+        }
+        this.prop();
     }
 
     prop(): void { // Añadir propiedades a las cajas
-        console.log("Pipo es un buen perro");
         $( function inicio() {
             $( ".draggable" )
                 .draggable(
                     {containment: "#background"}, // especifica respecto a qué es dragable
-                        {start: function(e: any, ui: any) {
-                            // console.log('me drago mucho');
-                        }},
-                    ) 
+                        {start: function(e: any, ui: any) {}},
+                    )
         
                 .resizable(
                     {containment: "#background"}, // especifica respecto a qué es resizable
-                        {start: function(e: any, ui: any) {
-                        // console.log('me resizean vivamente');
-                        }} 
+                        {start: function(e: any, ui: any) {}} 
                     );
                 } 
         );
@@ -81,6 +121,7 @@ export class MenuComponent implements OnInit{
 
             // Boton
             var b = document.createElement("button");
+            b.className = "btn btn-primary";
             b.innerText = "Crealo";
 
             // b.addEventListener("click", onSubmit(i));
@@ -153,34 +194,25 @@ export class MenuComponent implements OnInit{
         this.prop();
     }
     Lightmode(){
-        var element = document.body;
         var button = document.getElementsByClassName("btn-light");
-        
-        element.classList.replace("bg-light", "bg-dark");
-        // element.classList.remove("bg-dark");
+        document.body.classList.replace("bg-dark", "bg-light");
 
-        for( let i = 0; i< button.length; i++){
-            console.log(i);
-            button[i].classList.replace("btn-light", "btn-dark");
-            // element.classList.remove("btn-light");
+        while(button.length){
+            button[0].classList.replace("btn-light", "btn-dark");
         }
         
         this.condition = false;
 
     }
     Darkmode(){
-        var element = document.body;
         var button = document.getElementsByClassName("btn-dark");
-        element.classList.replace("bg-dark", "bg-light");
-        // element.classList.remove("bg-light");
+        document.body.classList.replace("bg-light", "bg-dark");
 
-
-        for( let i = 0; i< button.length; i++){
-            console.log(i);
-            button[i].classList.replace("btn-dark", "btn-light");
-            // element.classList.remove("btn-dark");
-        }
+        while(button.length){
+            button[0].classList.replace("btn-dark", "btn-light");
+        }   
 
         this.condition = true;
     }
+
 }

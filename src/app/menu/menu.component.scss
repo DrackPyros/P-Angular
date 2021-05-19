@@ -1,36 +1,198 @@
-#menu{
+#menu{ //Desktop Menu
     height: 100%;
     padding: 10px;
 
-    .title{
-        
-        h2{
-            margin: 0px;
-            box-shadow: 0px 0px 5px;
-            border-radius: 15px;
-        }
-    }
-    .main{
-        display: flex;
+    .grande{
         justify-content: center;
         align-items: center;
-        padding: 10px;
+        width: fit-content;
 
         button{
-            margin: 2px;
+            width: 130px;
+            margin-bottom: 10px;   
         }
-    }    
-    ul{
+    }
+}
+#responsive{ //Responsive menu
+
+    height: fit-content;
+    /* Icono */
+
+    .animated-icon2 {
+        width: 30px;
+        height: 20px;
+        position: relative;
         margin: 0px;
-        padding: 0px;
-        list-style: none;
+        cursor: pointer;
+
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
         
-        li{
-            margin: 5px;
-            
-            button{
-                width: 130px;
-            }
+        span{
+            height: 3px;
+            width: 100%;
+    
+            display: block;
+            position: absolute;
+            border-radius: 9px;
+            opacity: 1;
+            left: 0;
+    
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+    
+            -webkit-transition: .25s ease-in-out;
+            -moz-transition: .25s ease-in-out;
+            -o-transition: .25s ease-in-out;
+            transition: .25s ease-in-out;
+            background: #e3f2fd;
         }
+    }
+
+    /* Animación Span */
+
+    .animated-icon2 {
+        span:nth-child(1) {
+            top: 0px;
+        }
+
+        span:nth-child(2), span:nth-child(3) {
+            top: 10px;
+        }
+
+        span:nth-child(4) {
+            top: 20px;
+        }
+    }
+
+    .animated-icon2.open {
+        span:nth-child(1) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+
+        span:nth-child(2) {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        span:nth-child(3) {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        span:nth-child(4) {
+            top: 11px;
+            width: 0%;
+            left: 50%;
+        }
+    }
+
+    /* Animaciónn iz -> */
+
+    .navbar-collapse {
+        position: absolute;
+        left: -200px;
+        width: 300px;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+    .navbar-collapse.collapsing {
+        height: 100vh;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+    }
+
+    #menu-externo{
+        width: 200px;
+        height: 100vh;
+        margin: 0px;
+        z-index: 200;
+        box-shadow: 2px 0px 5px 0px black;
+    }
+
+    // Otros
+    .button-span{
+        margin-left: 10px;
+        border: 0px;
+        margin-bottom: 5px;
+    
+        &:focus{
+            outline: 0;
+            box-shadow: none;
+        }
+    }
+    .title{
+        position: absolute;
+        left: 50%;
+    }
+
+}
+.title{
+    h2{
+        padding: 0px 2px;
+        margin: 0px;
+        box-shadow: 0px 0px 5px;
+        border-radius: 15px;
+        color: white;
+    }
+}
+.main{
+    justify-content: center;
+    align-items: center;
+    // padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10vh;
+    
+    button{
+        margin: 4px;
+    }
+}  
+.xico{
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+    button{
+        margin: 4px;
+    }
+}
+@media (max-width: 1600px) {
+    #menu{
+        display: none;
+
+
+    }
+}
+@media (min-width: 1600px) {
+    nav{
+        display: none;
+    }
+}
+@media (max-width: 1800px) {
+    .grande{
+        display: none;
+    }
+}
+@media (min-width: 1800px) {
+    .xico{
+        display: none;
     }
 }
