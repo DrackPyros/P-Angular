@@ -173,13 +173,14 @@ export class MenuComponent implements OnInit{
             var b = document.createElement("button");
             b.className = "btn btn-primary";
             b.innerText = "Crealo";
-            b.addEventListener("click", () => {
+            // b.setAttribute((click), "onSubmit(4, )")
+            // b.addEventListener("click", () => {
                 // b.onclick = onSubmit(i); // especificar la funcion onSubmit de boardComponent
-                $(document).ready(function() {
-                    alert ("Hola Mundo"); 
-                });
+                // $(document).ready(function() {
+                //     alert ("Hola Mundo"); 
+                // });
                 // alert($(this).attr('id'));
-            });
+            // });
 
             // Appends
             content.appendChild(t);

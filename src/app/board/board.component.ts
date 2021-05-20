@@ -45,24 +45,33 @@ export class BoardComponent{
         switch(i){
     
             case 2: // Twitter
-            var frase2 = frase.split(" ");
-            var a = "-1"; // Busca posición
+            // var frase2 = frase.split(" ");
+            // var a = "-1"; // Busca posición
 
-            for (let i in frase2){
-                if (frase2[i].includes("blockquote")){
-                    a = i;
-                }
-            }
-            if (a == "-1"){
-                if (frase2[0].includes("a")){
-                    a = "1";
-                }
-                else
-                    alert("Twitter frame no valido");
-                    break;
-            }
-            var f = document.createElement("blockquote");
-            f.className = "twitter-tweet";
+            // for (let i in frase2){
+            //     if (frase2[i].includes("blockquote")){
+            //         a = i;
+            //     }
+            // }
+            // if (a == "-1"){
+            //     if (frase2[0].includes("a")){
+            //         a = "1";
+            //     }
+            //     else
+            //         alert("Twitter frame no valido");
+            //         break;
+            // }
+            // var f = document.createElement("blockquote");
+            // f.className = "twitter-tweet";
+            // var box = document.createElement("div");
+            // box.className = "iframely-embed";
+            var back = document.getElementsByClassName("content"); // Coger id para crear iframe en la caja
+            var f = document.createElement("a");
+            f.setAttribute("href", frase);
+            f.setAttribute("data-iframely-url", "");
+
+            document.body.appendChild(f);
+                break;
 
             case 4: // Twitch
                 break;
@@ -115,9 +124,9 @@ export class BoardComponent{
                     frame.setAttribute('allowFullScreen', '');
                     frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
                 }
-            var back = document.getElementsByClassName("content"); // Coger id para crear iframe en la caja
+                var back = document.getElementsByClassName("content"); // Coger id para crear iframe en la caja
 
-            document.body.appendChild(frame);
+                document.body.appendChild(frame);
         }
 
         
