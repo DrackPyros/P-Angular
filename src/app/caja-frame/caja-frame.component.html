@@ -1,6 +1,6 @@
-<div class="draggable" [id]="idRecibida">
+<div *ngIf="abierto" class="draggable" [id]="idRecibida">
     <div class="menu">
-        <button class="btn btn-light">X</button>
+        <button class="btn btn-light" (click)="cerrar()">X</button>
     </div>
     <div class="form">
         <div class="content">

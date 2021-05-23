@@ -2,9 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 declare var $: any;
 import { iframely } from "@iframely/embed.js";
 
-
-
-
 @Component({
     selector: 'app-caja',
     templateUrl: './caja.component.html',
@@ -15,7 +12,7 @@ export class CajaComponent implements OnInit {
 
     @Input () idRecibida: number=0;
     public url: string;
-
+    abierto = true;
 
     constructor() {
         this.url= "";
@@ -27,6 +24,10 @@ export class CajaComponent implements OnInit {
 
     }
 
+    cerrar(){
+        this.abierto = false;
+    }
+    
     onSubmit(){
         if(!this.url){
             alert("Introduce una enlace valido, si tienes dudas accede al enlace de información");

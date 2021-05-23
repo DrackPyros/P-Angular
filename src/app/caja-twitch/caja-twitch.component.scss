@@ -24,12 +24,14 @@
     .menu{
         width: 100%;
         position: relative;
+        height: fit-content;
 
         button{
             width: fit-content;
             right: 0px;
             position: absolute;
             margin: 1px;
+
         }
     }
     .content{
@@ -44,6 +46,14 @@
 
         .mx-auto{
             width: fit-content;
+            
+            form{
+                text-align: center;
+                
+                label{
+                    margin-right: 5px;
+                }
+            }
         }
 
         iframe{

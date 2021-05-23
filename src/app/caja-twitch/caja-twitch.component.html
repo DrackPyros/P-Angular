@@ -1,13 +1,19 @@
-<div class="draggable" [id]="idRecibida">
+<div *ngIf="abierto" class="draggable" [id]="idRecibida">
     <div class="menu">
-        <button class="btn btn-light">X</button>
+        <button class="btn btn-light" (click)="cerrar()">X</button>
     </div>
     <div class="form">
         <div class="content">
-            <h2>Pega el código URL aquí</h2>
+            <h2>Nombre del canal o video</h2>
             <div class="mx-auto">
                 <form #formUrl="ngForm" (ngSubmit)="onSubmit()">
-                    <input type="text" name="x" #x="ngModel" [(ngModel)]="url">
+                    <input type="text" name="x" #x="ngModel" [(ngModel)]="url"><br/>
+                    <label for="Todo">Streaming</label>
+                    <input type="radio" name="type" id="Todo" value="Todo" #type="ngModel" [(ngModel)]="tipo"><br/>
+                    <label for="Chat">Chat</label>
+                    <input type="radio" name="type" id="Chat" value="Chat" #type="ngModel" [(ngModel)]="tipo"><br/>
+                    <label for="Video">Video URL</label>
+                    <input type="radio" name="type" id="Video" value="Video" #type="ngModel" [(ngModel)]="tipo"><br/>
                     <input class="btn btn-primary" type="submit" value="Crear">
                 </form>
             </div>

@@ -10,6 +10,7 @@ export class CajaFrameComponent implements OnInit {
 
   @Input () idRecibida: number=0;
   public url: string;
+  abierto = true;
 
 
   constructor() {
@@ -20,6 +21,9 @@ export class CajaFrameComponent implements OnInit {
       this.prop();
   }
 
+  cerrar(){
+    this.abierto = false;
+  }
 
   onSubmit(){
       if(!this.url){

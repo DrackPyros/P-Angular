@@ -17,6 +17,9 @@
         justify-content: center;
         align-items: center;
     }
+    .iframely-responsive{
+        margin-top: 40px;
+    }
 
     &:hover{
         z-index: 1;
@@ -30,6 +33,7 @@
             right: 0px;
             position: absolute;
             margin: 1px;
+            z-index: 3;
         }
     }
     .content{
@@ -44,6 +48,10 @@
 
         .mx-auto{
             width: fit-content;
+            
+            form{
+                text-align: center;
+            }
         }
 
         iframe{
