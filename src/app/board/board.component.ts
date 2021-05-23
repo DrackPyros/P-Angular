@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { EventEmitterService } from '../event-emitter.service';
+
+import { CajaComponent } from '../caja/caja.component';
+import { CajaFrameComponent } from '../caja-frame/caja-frame.component';
+import { CajaTwitchComponent } from '../caja-twitch/caja-twitch.component';
+
 declare var $: any;
 
-
-export interface caja{
-    url: string,
-}
 
 @Component({
     selector: 'app-board',
@@ -13,122 +15,44 @@ export interface caja{
 })
 export class BoardComponent{
 
-    public frame: caja;
+    id: number = 1;
 
-    constructor() {
-        this.frame= { url:"" }
-    }
+    @ViewChild('background', { read: ViewContainerRef }) background!: ViewContainerRef;
 
-    onSubmit(i: number){
-        console.log(this.frame.url);
-        // console.log($(this).attr('id'));
-        
-        // var a = document.getElementById(x)
-        // alert(event.target.id);
-        // console.log(this);
-        if(!this.frame.url){
-            alert("Introduce una enlace de tipo <iframe>");
-        }
-        else
-            this.validate(this.frame.url, i);
+
+    constructor(private resolver: ComponentFactoryResolver, private eventEmitterService: EventEmitterService) {
     }
     
-    validate(f: string, i: number){
-        var frase = f;
-        console.log();
-        frase = frase.replace(/\"/g, "'");  
-        this.crearframe(frase, i);
-    }
+    ngOnInit() {    
+        if (this.eventEmitterService.subsVar==undefined) {    
+          this.eventEmitterService.subsVar = this.eventEmitterService.    
+          f.subscribe((i) => {    
+            this.crearCaja(i);    
+          });    
+        }    
+      } 
 
-    crearframe(frase: string, i: number){
-        
-        switch(i){
-    
-            case 2: // Twitter
-            // var frase2 = frase.split(" ");
-            // var a = "-1"; // Busca posición
-
-            // for (let i in frase2){
-            //     if (frase2[i].includes("blockquote")){
-            //         a = i;
-            //     }
-            // }
-            // if (a == "-1"){
-            //     if (frase2[0].includes("a")){
-            //         a = "1";
-            //     }
-            //     else
-            //         alert("Twitter frame no valido");
-            //         break;
-            // }
-            // var f = document.createElement("blockquote");
-            // f.className = "twitter-tweet";
-            // var box = document.createElement("div");
-            // box.className = "iframely-embed";
-            var back = document.getElementsByClassName("content"); // Coger id para crear iframe en la caja
-            var f = document.createElement("a");
-            f.setAttribute("href", frase);
-            f.setAttribute("data-iframely-url", "");
-
-            document.body.appendChild(f);
+    crearCaja (i: number) {
+        switch (i){
+            case 1:{ // URL Based
+                const factory = this.resolver.resolveComponentFactory(CajaComponent);
+                const componentRef = this.background.createComponent(factory);
+                componentRef.instance.idRecibida = this.id;
+                this.id ++;
                 break;
-
-            case 4: // Twitch
+            }
+            case 2:{ // Twitch
+                const factory = this.resolver.resolveComponentFactory(CajaFrameComponent);
+                const componentRef = this.background.createComponent(factory);
+                componentRef.instance.idRecibida = this.id;
+                this.id ++;
                 break;
-            
-            default:
-                var frase2 = frase.split(" ");
-                var a = "-1"; // Busca posición
-
-                for (let i in frase2){
-                    if (frase2[i].includes("src")){
-                        a = i;
-                    }
-                }
-                var url = frase2[a];
-                url = url.slice(5, -1);
-                // console.log(url);
-                // console.log(typeof(url));
-
-                for (let i in frase2){
-                    if (frase2[i].includes("width")){
-                        a = i;
-                    }
-                }
-                var wi = frase2[a];
-                wi = wi.slice(7, -1);
-                wi = wi + "px";
-                // console.log(wi);
-                // console.log(typeof(wi));
-
-                for (let i in frase2){
-                    if (frase2[i].includes("height")){
-                        a = i;
-                    }
-                }
-                var he = frase2[a];
-                he = he.slice(8, -1);
-                he = he + "px";
-                // console.log(he);
-                // console.log(typeof(he));
-
-                // Creación
-                
-                var frame = document.createElement("iframe");
-                frame.style.width = wi;
-                frame.style.height = he;
-                frame.setAttribute("src", url);
-                // console.log(frame);
-
-                if (i == 3){ // Youtube video
-                    frame.setAttribute('allowFullScreen', '');
-                    frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                }
-                var back = document.getElementsByClassName("content"); // Coger id para crear iframe en la caja
-
-                document.body.appendChild(frame);
+            }
+            case 3: // Iframe Based
+                const factory = this.resolver.resolveComponentFactory(CajaTwitchComponent);
+                const componentRef = this.background.createComponent(factory);
+                componentRef.instance.idRecibida = this.id;
+                this.id ++;
         }
-
-        
     }
 }

@@ -1,0 +1,16 @@
+<div class="draggable" [id]="idRecibida">
+    <div class="menu">
+        <button class="btn btn-light">X</button>
+    </div>
+    <div class="form">
+        <div class="content">
+            <h2>Pega el código URL aquí</h2>
+            <div class="mx-auto">
+                <form #formUrl="ngForm" (ngSubmit)="onSubmit()">
+                    <input type="text" name="x" #x="ngModel" [(ngModel)]="url">
+                    <input class="btn btn-primary" type="submit" value="Crear">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

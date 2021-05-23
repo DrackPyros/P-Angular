@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
             });
         });
         
+        
         if(document.body.clientWidth < 1600){
             this.menu = document.getElementsByTagName("app-menu");
             this.board = document.getElementsByTagName("app-board");

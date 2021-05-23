@@ -1,0 +1,64 @@
+.draggable { 
+    width: 400px;
+    height: 250px;
+    
+    min-width: 200px;
+    min-height: 160px;
+    
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    overflow: hidden;
+    
+    .form{
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover{
+        z-index: 1;
+    }
+    .menu{
+        width: 100%;
+        position: relative;
+
+        button{
+            width: fit-content;
+            right: 0px;
+            position: absolute;
+            margin: 1px;
+        }
+    }
+    .content{
+        width: fit-content;
+        padding: 5px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 0px;
+        // overflow: scroll;
+        // overflow-y: auto;
+        // overflow-x: hidden;
+
+
+        .mx-auto{
+            width: fit-content;
+        }
+
+        iframe{
+            border: 0px;
+        }
+
+        &::-webkit-scrollbar{
+            width: 15px;
+        }
+        &::-webkit-scrollbar-track{
+            background: #201c29;   
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #666;
+            border-radius: 20px;
+        }
+    }
+}
