@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { BoardComponent } from './board/board.component';
 import { InfoComponent } from './info/info.component';
 import { ErrorComponent } from './error/error.component';
+import { PaletteComponent } from './palette/palette.component';
 
 import { CajaComponent } from './caja/caja.component';
 import { CajaFrameComponent } from './caja-frame/caja-frame.component';
@@ -17,7 +18,6 @@ import { FormsModule } from '@angular/forms';
 import { EventEmitterService } from './event-emitter.service';
 
 import { SafeHtmlPipeService } from './safe-html-pipe.service';
-import { PaletteComponent } from './palette/palette.component';
 
 
 

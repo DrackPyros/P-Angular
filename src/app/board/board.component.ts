@@ -29,10 +29,13 @@ export class BoardComponent{
           f.subscribe((i) => {    
             this.crearCaja(i);    
           });    
-        }    
+        }
+        let b = document.getElementsByTagName("app-board");
+        b[0].className = "col-11";
       } 
 
     crearCaja (i: number) {
+        console.log(i);
         switch (i){
             case 1:{ // URL Based
                 const factory = this.resolver.resolveComponentFactory(CajaComponent);
