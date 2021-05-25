@@ -54,7 +54,6 @@ export class CajaFrameComponent implements OnInit {
     }
 
     loadframe(aid: number){
-        console.log("resul = "+aid);
         
         let f = localStorage.getItem("url");
         let frase = f.split(",");
@@ -76,8 +75,6 @@ export class CajaFrameComponent implements OnInit {
         box.style.height = height[aid]+"px";
         box.style.left = x[aid]+"px";
         box.style.top = y[aid]+"px";
-        // console.log(box.style.top);
-        // console.log(y[aid]+"px");
 
         var frame = document.createElement("iframe");
         frame.style.width = "100%";
@@ -152,7 +149,6 @@ export class CajaFrameComponent implements OnInit {
             box.removeChild(c[0]);
             box.appendChild(d);
             box.appendChild(frame);
-            // console.log("a");
 
             // Triki truko (Añadir pantalla completa y otros a iframes que lo necesiten)
             for (let i in frase2){

@@ -43,7 +43,6 @@ export class BoardComponent{
     } 
 
     crearCaja (i) {
-        console.log(i.id);
         switch (i.i){
             case 1:{ // URL Based
                 const factory = this.resolver.resolveComponentFactory(CajaComponent);

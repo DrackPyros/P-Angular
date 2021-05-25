@@ -10,6 +10,8 @@ export class InfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let b = document.getElementsByTagName("app-info");
+    b[0].className = "col-11";
   }
 
 }

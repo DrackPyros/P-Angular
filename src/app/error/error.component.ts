@@ -10,6 +10,8 @@ export class ErrorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let b = document.getElementsByTagName("app-error");
+    b[0].className = "col-11";
   }
 
 }

@@ -81,9 +81,7 @@ export class MenuComponent implements OnInit{
         var tipo = tipo.split(",");
 
         for(let i = 0; i< tipo.length; i++){
-            console.log("i= "+i);
-            console.log("tipo= "+tipo[i]);
-            console.log("------------------------------");
+
             if(tipo[i] == "url"){
                 this.NewCaja(1, true, i);
             }

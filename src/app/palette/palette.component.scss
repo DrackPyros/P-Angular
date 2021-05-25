@@ -1,0 +1,54 @@
+.base{
+    height: 100vh;
+    width: 100%;
+    box-shadow: inset 0px 0px 5px 0px black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.draggable{
+    width: fit-content;
+    margin: 0px;
+    padding-bottom: 10px;
+
+
+    h1{
+        text-align: center;
+        margin-top: 5vh;
+    }
+    .menu-col{
+        height: 400px;
+        
+        div{
+            box-shadow: inset 0px 0px 5px 0px black;
+            height: 20%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            h2{
+                margin: 0 10px;
+            }
+            
+            input{
+                width: 60px;
+                height: 30px;
+                text-align: center;
+            }
+        }
+    }
+    .box{
+        height: 400px;
+        padding: 12px;
+        
+        .canvas{
+            box-shadow: inset 0px 0px 5px 0px black;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    
+}

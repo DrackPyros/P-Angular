@@ -27,7 +27,6 @@ export class CajaTwitchComponent implements OnInit {
 
     ngOnInit(): void {
         this.prop();
-        // console.log(this.cargar);   
     }
 
     ngAfterViewInit(): void {
@@ -89,10 +88,8 @@ export class CajaTwitchComponent implements OnInit {
         let j = box.getElementsByClassName("form");
         box.removeChild(j[0]);
 
-        console.log("j= "+aid); 
-        console.log(tipo[aid]); 
         if (tipo[aid] == "stream"){
-            // console.log(1);
+
             let d = document.createElement("p"); //URL
             d.classList.add("hidden");
             d.innerHTML = frase[aid];  
@@ -111,18 +108,18 @@ export class CajaTwitchComponent implements OnInit {
             box.getElementsByClassName("menu")[0].appendChild(p);
             box.getElementsByClassName("menu")[0].appendChild(d);
             box.appendChild(frame);
-
+            
             var options = {
                 width: "100%",
                 height: "100%",
-                channel: frase,
+                channel: frase[aid],
                 parent: ["localhost"]
             };
             var player = new Twitch.Player("twitch-embed", options);
             player.setVolume(0.5);
         }
         else if(tipo[aid] == "chat"){
-            // console.log(2);
+
             let d = document.createElement("p");
             d.classList.add("hidden");
             d.innerHTML = frase[aid];  
@@ -132,7 +129,7 @@ export class CajaTwitchComponent implements OnInit {
             p.innerHTML = "chat";
             
             let frame = document.createElement("iframe");
-            frame.src = "https://www.twitch.tv/embed/"+frase+"/chat?parent=localhost&darkpopout"
+            frame.src = "https://www.twitch.tv/embed/"+frase[aid]+"/chat?parent=localhost&darkpopout"
             frame.style.width = "100%";
             frame.style.height = "90%";
             
@@ -141,7 +138,7 @@ export class CajaTwitchComponent implements OnInit {
             box.appendChild(frame);
         }
         else{
-            // console.log(3);
+
             let d = document.createElement("p");
             d.classList.add("hidden");
             d.innerHTML = frase[aid];  
@@ -152,7 +149,6 @@ export class CajaTwitchComponent implements OnInit {
             
             let frame = document.createElement("iframe");
             let idvideo = frase[aid].slice(29);
-            // console.log(idvideo);
             
             frame.style.width = "100%";
             frame.style.height = "90%";
@@ -166,7 +162,7 @@ export class CajaTwitchComponent implements OnInit {
             var options = {
                 width: "100%",
                 height: "100%",
-                channel: frase,
+                channel: frase[aid],
                 parent: ["localhost"]
             };
         }
@@ -177,12 +173,7 @@ export class CajaTwitchComponent implements OnInit {
         
         // Clear
         let j = box.getElementsByClassName("form");
-        box.removeChild(j[0]);
-
-        // let d = document.createElement("p");
-        // d.classList.add("hidden");
-        // d.innerHTML = <string>opcion;
-        
+        box.removeChild(j[0]);        
 
         // Tipo
         if (opcion == "Todo"){
@@ -245,7 +236,6 @@ export class CajaTwitchComponent implements OnInit {
             
             let frame = document.createElement("iframe");
             let idvideo = frase.slice(29);
-            // console.log(idvideo);
             
             frame.style.width = "100%";
             frame.style.height = "90%";
