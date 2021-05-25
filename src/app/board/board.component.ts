@@ -23,24 +23,34 @@ export class BoardComponent{
     constructor(private resolver: ComponentFactoryResolver, private eventEmitterService: EventEmitterService) {
     }
     
-    ngOnInit() {    
+    ngOnInit() {   
+        // Intento de cargar caja cuando se inicia
+        // if (!localStorage.getItem("x")){
+        //     console.log("f5");  
+        //     this.crearCaja(1);
+        //     this.id ++;
+        // }
+
         if (this.eventEmitterService.subsVar==undefined) {    
           this.eventEmitterService.subsVar = this.eventEmitterService.    
           f.subscribe((i) => {    
             this.crearCaja(i);    
           });    
         }
+        
         let b = document.getElementsByTagName("app-board");
         b[0].className = "col-11";
-      } 
+    } 
 
-    crearCaja (i: number) {
-        console.log(i);
-        switch (i){
+    crearCaja (i) {
+        console.log(i.id);
+        switch (i.i){
             case 1:{ // URL Based
                 const factory = this.resolver.resolveComponentFactory(CajaComponent);
                 const componentRef = this.background.createComponent(factory);
                 componentRef.instance.idRecibida = this.id;
+                componentRef.instance.cargar = i.cargar;
+                componentRef.instance.Aid = i.id;
                 this.id ++;
                 break;
             }
@@ -48,14 +58,19 @@ export class BoardComponent{
                 const factory = this.resolver.resolveComponentFactory(CajaFrameComponent);
                 const componentRef = this.background.createComponent(factory);
                 componentRef.instance.idRecibida = this.id;
+                componentRef.instance.cargar = i.cargar;
+                componentRef.instance.Aid = i.id;
                 this.id ++;
                 break;
             }
-            case 3: // Iframe Based
+            case 3:{ // Iframe Based
                 const factory = this.resolver.resolveComponentFactory(CajaTwitchComponent);
                 const componentRef = this.background.createComponent(factory);
                 componentRef.instance.idRecibida = this.id;
+                componentRef.instance.cargar = i.cargar;
+                componentRef.instance.Aid = i.id;
                 this.id ++;
+            }
         }
     }
 }

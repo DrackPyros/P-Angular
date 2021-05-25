@@ -16,26 +16,25 @@ export class MenuComponent implements OnInit{
     constructor(private eventEmitterService: EventEmitterService) {
     }
 
-    ngOnInit(): void{
-        if (localStorage.getItem("x")){
-            this.loadCajas();
-        }
-        else
-            this.NewCaja(1);
-            // console.log("a");
-            // this.id ++;
-        
+    ngOnInit(): void{        
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
     }
+    // Intento de cargar cajas al inicio
+    // ngAfterViewInit(): void {
+    //     if (localStorage.getItem("x")){
+    //         console.log("funciona");
+    //         this.loadCajas();
+    //     }
+    // }
 
     clearBoard(){
         var canvas = document.getElementById("background");
 
         while (canvas.childElementCount != 1) {
             canvas.removeChild(canvas.childNodes[1]);
-          }
+        }
     }
 
     saveCajas(){
@@ -45,62 +44,59 @@ export class MenuComponent implements OnInit{
         var c = document.getElementsByClassName("draggable");
         var wi = [];
         var he = [];
-
+        
         var x = [];
         var y = [];
         
+        var url = [];
+        var tipo = [];
+        
         for(let el = 0; el < c.length; el++) {
-            wi[el] = c[el].clientWidth;
-            he[el] = c[el].clientHeight;
+            let i = <HTMLElement><any>c[el];
+            
+            wi[el]  = i.clientWidth;
+            he[el] = i.clientHeight;
+            
+            x[el] = i.offsetLeft;
+            y[el] = i.offsetTop;
+            
+            var m = c[el].getElementsByClassName("hidden");
+            tipo[el] = m[0].innerHTML;
+            url[el] = m[1].innerHTML;
 
-            x[el] = c[el].clientLeft;
-            y[el] = c[el].clientTop;
-            console.log(x[el]);
-            console.log(y[el]);
         }
         localStorage.setItem("wi", wi.toString());
         localStorage.setItem("he", he.toString());
         localStorage.setItem("x", x.toString());
         localStorage.setItem("y", y.toString());
+        localStorage.setItem("tipo", tipo.toString());
+        localStorage.setItem("url", url.toString());
 
-        // console.log(localStorage.getItem("x"));
-        // console.log(localStorage.getItem("y"));
     }
 
     loadCajas(){
-        var back = document.getElementById("background");
+        this.clearBoard();
 
-        x = localStorage.getItem("x");
-        var x = x.split(",");
+        tipo = localStorage.getItem("tipo");
+        var tipo = tipo.split(",");
 
-        y = localStorage.getItem("y");
-        var y = y.split(",");
-
-        wi = localStorage.getItem("wi");
-        var wi = wi.split(",");
-
-        he = localStorage.getItem("he");
-        var he = he.split(",");
-
-        for(let i = 0; i< x.length; i++){
-            // console.log(i);
-            let box = document.createElement("div");
-            box.classList.add("draggable");
-
-            box.style.width = wi[i]+"px";
-            box.style.height = he[i]+"px";
-
-            // box.style.top = y[i]+"px";
-            // box.style.left = x[i]+"px";
-
-            // console.log(box);
-            back.appendChild(box);
+        for(let i = 0; i< tipo.length; i++){
+            console.log("i= "+i);
+            console.log("tipo= "+tipo[i]);
+            console.log("------------------------------");
+            if(tipo[i] == "url"){
+                this.NewCaja(1, true, i);
+            }
+            else if(tipo[i] == "frame"){
+                this.NewCaja(2, true, i);
+            }
+            else
+                this.NewCaja(3, true, i);
         }
-        // this.prop();
     }
 
-    NewCaja(i){
-        this.eventEmitterService.OnButtonClick(i);
+    NewCaja(i: number, cargar: boolean, id: number = null){
+        this.eventEmitterService.OnButtonClick({i:i, cargar:cargar, id:id});
     }
 
     Lightmode(){

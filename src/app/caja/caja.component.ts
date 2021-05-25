@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-declare var $: any;
 import { iframely } from "@iframely/embed.js";
+declare var $: any;
 
 @Component({
     selector: 'app-caja',
@@ -10,18 +10,32 @@ import { iframely } from "@iframely/embed.js";
 
 export class CajaComponent implements OnInit {
 
-    @Input () idRecibida: number=0;
+    @Input () idRecibida: number = 0; //Id de la propia caja
+    @Input () cargar: boolean; //Si necesita ser cargado
+    @Input () Aid: number = 0; //Array id
+
     public url: string;
     abierto = true;
 
     constructor() {
         this.url= "";
-     }
+    }
 
     ngOnInit(): void {
         this.prop();
         iframely.load();
 
+    }
+
+    ngAfterViewInit(): void {
+        if(this.cargar){
+            let f = localStorage.getItem("url");
+            let frase = f.split(",");
+
+            if(frase[this.Aid]){
+                this.loadframe(this.Aid);
+            }
+        }
     }
 
     cerrar(){
@@ -42,11 +56,57 @@ export class CajaComponent implements OnInit {
         this.crearframe(frase);
     }
 
+    loadframe(aid: number){
+        
+        let f = localStorage.getItem("url");
+        let frase = f.split(",");
+        
+        let xa = localStorage.getItem("x");
+        let x = xa.split(",");
+        
+        let ya = localStorage.getItem("y");
+        let y = ya.split(",");
+        
+        let wa = localStorage.getItem("wi");
+        let width = wa.split(",");
+        
+        let ha = localStorage.getItem("he");
+        let height = ha.split(",");
+        
+        var box = document.getElementById(this.idRecibida.toString());
+        box.style.width = width[aid]+"px";
+        box.style.height = height[aid]+"px";
+        box.style.left = x[aid]+"px";
+        box.style.top = y[aid]+"px";
+
+        var frame = document.createElement("div");
+        frame.className = "iframely-embed";
+        frame.style.width = "300px";
+        var c = document.createElement("div");
+        c.className = "iframely-responsive";
+
+        var link = document.createElement("a");
+        link.setAttribute("data-iframely-url", "");
+        link.setAttribute("href", frase[aid]);
+
+        let d = document.createElement("p");
+        d.classList.add("hidden");
+        d.innerHTML = frase[aid];
+
+        // Imports
+        let j = box.getElementsByClassName("form");
+        box.removeChild(j[0]);
+
+        c.appendChild(link);
+        frame.appendChild(c);
+
+        box.appendChild(d);
+        box.appendChild(frame);
+        iframely.load();
+    }
+
     crearframe(frase: string){
         var box = document.getElementById(this.idRecibida.toString());
-
-        // var menu = document.createElement("div");
-        // menu.className = "menu";
         
         var frame = document.createElement("div");
         frame.className = "iframely-embed";
@@ -58,6 +118,10 @@ export class CajaComponent implements OnInit {
         link.setAttribute("data-iframely-url", "");
         link.setAttribute("href", frase);
 
+        var url = document.createElement("p");
+        url.classList.add("hidden");
+        url.innerHTML = frase;
+
         // Imports
         let j = box.getElementsByClassName("form");
         box.removeChild(j[0]);
@@ -65,6 +129,7 @@ export class CajaComponent implements OnInit {
         c.appendChild(link);
         frame.appendChild(c);
 
+        box.appendChild(url);
         box.appendChild(frame);
         iframely.load();
         // this.prop();
