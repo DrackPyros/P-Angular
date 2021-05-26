@@ -5,5 +5,93 @@
     padding: 5px;
     
     display: flex;
-    overflow: hidden;
+    overflow: auto;
+
+    .content{
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+        
+    .Botones{
+        display: flex;
+        margin-top: 5vh;
+            
+    }
+    
+    .info{
+        margin-top: 5vh;
+
+        table{
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+            
+            :first-child{
+                width: 200px;
+            }
+            
+            tr{
+                height: 50px;
+                padding: 10px;
+                text-align: left;
+            }
+        }
+    }
+
+    .Boton-caja{
+        margin-top: 5vh;
+
+        button{
+            width: 150px;
+        }
+    }
+    .canvas{
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .but{
+        display: flex;
+        flex-direction: column;
+
+        button{
+            margin: 5px;
+        }
+    }
+    .caja{
+        margin-top: 20px;
+
+        img{
+            max-width: 450px;
+        }
+        .contenido{
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    }
+    .contenido{
+        h2{
+            text-align: center;
+        }
+        text-align: justify;
+    }
+    
+    &::-webkit-scrollbar{
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track{
+        background: #201c29;   
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #666;
+        border-radius: 20px;
+    }
+
+
 }

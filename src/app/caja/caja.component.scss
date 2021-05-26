@@ -20,6 +20,8 @@
     }
     .iframely-responsive{
         margin-top: 40px;
+        // overflow: auto;
+
     }
 
     &:hover{
@@ -45,10 +47,6 @@
         padding: 5px;
         border-radius: 5px;
         box-shadow: 0px 0px 5px 0px;
-        // overflow: scroll;
-        // overflow-y: auto;
-        // overflow-x: hidden;
-
 
         .mx-auto{
             width: fit-content;

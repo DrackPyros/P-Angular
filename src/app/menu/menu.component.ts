@@ -28,7 +28,7 @@ export class MenuComponent implements OnInit{
     //         this.loadCajas();
     //     }
     // }
-
+    
     clearBoard(){
         var canvas = document.getElementById("background");
 

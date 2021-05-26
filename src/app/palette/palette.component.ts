@@ -15,8 +15,15 @@ export class PaletteComponent implements OnInit {
     color4: string;
 
     ngOnInit(): void {
-        let b = document.getElementsByTagName("app-palette");
-        b[0].className = "col-11";
+        // let b = document.getElementsByTagName("app-palette");
+        // b[0].className = "col-11";
+    }
+
+    ngAfterViewInit(): void {
+        if(document.body.clientWidth > 1600){
+            let b = document.getElementsByTagName("app-palette");
+            b[0].className = "col-11";
+        }
     }
     color(){
         if(this.color1){ //Menu
@@ -34,14 +41,12 @@ export class PaletteComponent implements OnInit {
             let c = document.getElementsByClassName("draggable") as HTMLCollectionOf<HTMLElement>;
             for(let i = 0; i < c.length; i ++){
                 c[i].classList.remove("bg-light", "bg-dark");
-                // c[i].classList.remove("btn-light", "btn-dark");
                 c[i].style.backgroundColor = this.color3;
             }
         }
         if(this.color4){ //Botones
             let c = document.getElementsByClassName("btn") as HTMLCollectionOf<HTMLElement>;
             for(let i = 0; i < c.length; i ++){
-                // c[i].classList.remove("bg-light", "bg-dark");
                 c[i].classList.remove("btn-light", "btn-dark");
                 c[i].style.backgroundColor = this.color4;
             }

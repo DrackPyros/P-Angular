@@ -141,7 +141,8 @@
     }
     .title{
         position: absolute;
-        left: 50%;
+        top: 10px;
+        left: 45vw;
     }
     .xico{
         margin: 0 auto;
@@ -149,6 +150,7 @@
 
 }
 .title{
+    cursor: pointer;
     h2{
         padding: 0px 2px;
         margin: 0px;

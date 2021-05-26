@@ -1,3 +1,88 @@
-<div class="base">
-    <p>info works!</p>
+<div class="base bg-trght">
+    <div class="content row">
+        <div class="col-xl-6 col-sm-12 row">
+            <div class="Botones col-6">
+                <div class="canvas">
+                    <div class="but">
+                        <button class="btn btn-light"><i class="fas fa-user"></i></button>
+                        <button class="btn btn-light"><i class="far fa-window-close"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-lightbulb"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-info"></i></button>
+                    </div>
+                    <div class="but">
+                        <button class="btn btn-light"><i class="far fa-save"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-sync"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-palette"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-home"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="info col-6">
+                <table>
+                    <tr><td><strong>1.1 Página Login:</strong></td><td>Link a la página de inicio de sesión.</td></tr>
+                    <tr><td><strong>1.2 Borrar Pizarra:</strong></td><td>Borra la posición de las cajas sobre la pizarra actual.</td></tr>
+                    <tr><td><strong>1.3 Modo Claro/Oscuro:</strong></td><td>Botón que cambia el tema de la página entre claro y oscuro.</td></tr>
+                    <tr><td><strong>1.4 Página de información:</strong></td><td>Link a la página en la que te encuentras ahora.</td></tr>
+                    <tr><td><strong>2.1 Guardar Pizarra:</strong></td><td>Guarda la posición de las cajas en tu sesión para que luego las puedas cargar.</td></tr>
+                    <tr><td><strong>2.2 Cargar Pizarra:</strong></td><td>Borra la pizarra actual y carga la que se habia guardado anteriormente.</td></tr>
+                    <tr><td><strong>2.3 Página paleta de colores:</strong></td><td>Link a la página de cambio de color.</td></tr>
+                    <tr><td><strong>2.4 Página principal:</strong></td><td>Link a la página pizarra.</td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-xl-6 col-sm-12 row">
+            <div class="Boton-caja col-6">
+                <div class="canvas">
+                    <div class="but">
+                        <button class="btn btn-light">Desde URL</button>
+                        <button class="btn btn-light">Desde Iframe</button>
+                        <button class="btn btn-light">Twitch Stream</button>
+                    </div>
+                </div>
+            </div>
+            <div class="info col-6">
+                <div>
+                    <table>
+                        <tr><td><strong>Texto URL:</strong></td><td>Crea una caja para que tu puedas pegar la URL de una página y esta se cargue dentro.</td></tr>
+                        <tr><td><strong>Texto iframe:</strong></td><td>Crea una caja para que tu puedas pegar un iframe y esta se cargue dentro.</td></tr>
+                        <tr><td><strong>Twitch stream:</strong></td><td>Crea una caja para que tu especifiques el nombre del canal y el tipo de contenido que quieres traer y se cargue dentro.</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-12 col-sm-12 row caja">
+            <div class="col-6">
+                <img src="assets/cajaurl.jpg" alt="URL">
+            </div>
+            <div class="contenido col-6">
+                <h2>Caja url</h2>
+                <p>Copias un enlace de tipo URL, lo pegas en el formulario y le das a crear.</p>
+                <p>Ejemplo de enlace URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ</p>
+                <p>El enlace pasa por el framework de <a href="https://iframely.com/embed">iframely</a> y en la pagina de los cuales podeis comprobar si lo reconoce.</p>
+            </div>
+        </div>
+        <div class="col-xl-6 col-sm-12 row caja">
+            <div class="col-6">
+                <img src="assets/cajaframe.jpg" alt="Frame">
+            </div>
+            <div class="contenido col-6">
+                <h2>Caja Frame</h2>
+                <p>Copias un enlace de tipo iframe, lo pegas en el formulario y le das a crear.</p>
+                <p>Los códigos de tipo iframe son tipos de textos que permiten a un navegador albergar un pedazo de otra página web.</p>
+                <p>Si se diera el caso que el sitio web que quieres utilizar no está contemplado dentro de iframely, si obtienes un código iframe, lo puedes utilizar aqui.</p>
+            </div>
+        </div>
+        <div class="col-xl-6 col-sm-12 row caja">
+            <div class="col-6">
+                <img src="assets/cajatwitch.jpg" alt="Twitch">
+            </div>
+            <div class="contenido col-6">
+                <h2>Caja Twitch</h2>
+                <p>En este formulario se pueden conseguir 3 cosas:</p>
+                <p>Si seleccionas la opción <i>Streaming</i> puedes poner el nombre del canal que quieras ver y darle a crear esto creará una caja con la emisión en directo.</p>
+                <p>La opción <i>Chat</i> te ofrece algo similar pero solo creará el chat sin el video del canal que escribas</p>
+                <p>La ultima opción <i>Video URL</i> pretende que escribas la url de un video en la plataforma Twitch para que se pueda crear en una caja. Solo video, sin el chat.</p>
+            </div>
+        </div>
+    </div>
 </div>

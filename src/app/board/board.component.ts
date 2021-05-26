@@ -37,11 +37,14 @@ export class BoardComponent{
             this.crearCaja(i);    
           });    
         }
-        
-        let b = document.getElementsByTagName("app-board");
-        b[0].className = "col-11";
     } 
-
+    
+    ngAfterViewInit(): void {
+        if(document.body.clientWidth > 1600){
+            let b = document.getElementsByTagName("app-board");
+            b[0].className = "col-11";
+        }
+    }
     crearCaja (i) {
         switch (i.i){
             case 1:{ // URL Based
