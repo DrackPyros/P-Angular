@@ -26,20 +26,19 @@ export class AppComponent implements OnInit {
         let menu = document.getElementsByTagName("app-menu");
 
         if(document.getElementsByTagName("app-board").length > 0){
-            // console.log("board");
             var board = document.getElementsByTagName("app-board");
         }
         else if(document.getElementsByTagName("app-info").length > 0){
-            // console.log("info");
             var board = document.getElementsByTagName("app-info");
         }
         else if(document.getElementsByTagName("app-error").length > 0){
-            // console.log("error");
             var board = document.getElementsByTagName("app-error");
         }
         else if(document.getElementsByTagName("app-palette").length > 0){
-            // console.log("palette");
             var board = document.getElementsByTagName("app-palette");
+        }
+        else if(document.getElementsByTagName("app-login").length > 0){
+            var board = document.getElementsByTagName("app-login");
         }
 
         if(this.innerWidth < 1600){

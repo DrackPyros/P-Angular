@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { EventEmitterService } from './event-emitter.service';
 
 import { SafeHtmlPipeService } from './safe-html-pipe.service';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -33,6 +34,7 @@ import { SafeHtmlPipeService } from './safe-html-pipe.service';
     CajaTwitchComponent,
     SafeHtmlPipeService,
     PaletteComponent,
+    LoginComponent,
 ],
   imports: [
     BrowserModule,

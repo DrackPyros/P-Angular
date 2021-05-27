@@ -1,22 +1,36 @@
 .base {
     width: 100%; 
-    height: 100vh;
+    height: 100%;
     box-shadow: inset 0px 0px 5px 0px black;
     padding: 5px;
     
     display: flex;
-    overflow: auto;
+    // overflow: hidden;
 
     .content{
         width: 90%;
+        // height: 100vh;
         margin: 0 auto;
         text-align: center;
+        background-color: grey;
+
+        // overflow: auto;
+
+        &::-webkit-scrollbar{
+            width: 15px;
+        }
+        &::-webkit-scrollbar-track{
+            background: #201c29;   
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #666;
+            border-radius: 20px;
+        }
     }
         
     .Botones{
         display: flex;
         margin-top: 5vh;
-            
     }
     
     .info{
@@ -67,7 +81,7 @@
         margin-top: 20px;
 
         img{
-            max-width: 450px;
+            max-width: 350px;
         }
         .contenido{
             background-color: white;
@@ -76,22 +90,16 @@
         }
     }
     .contenido{
+        max-width: 350px;
+        text-align: justify;
+
         h2{
             text-align: center;
         }
-        text-align: justify;
     }
-    
-    &::-webkit-scrollbar{
-        width: 15px;
+    .c{
+        display: flex;
+        width: fit-content;
+        margin: 0 auto;
     }
-    &::-webkit-scrollbar-track{
-        background: #201c29;   
-    }
-    &::-webkit-scrollbar-thumb{
-        background-color: #666;
-        border-radius: 20px;
-    }
-
-
 }

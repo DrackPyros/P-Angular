@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse bg-dark" id="menu-externo">
         <div class="p-4">
             <div class="main row">
-                <button class="btn btn-light col-5"><i class="fas fa-user"></i></button>
+                <button class="btn btn-light col-5" routerLink="/login"><i class="fas fa-user"></i></button>
                 <button class="btn btn-light col-5" (click)="saveCajas()"><i class="far fa-save"></i></button>
                 <button class="btn btn-light col-5" (click)="clearBoard()"><i class="far fa-window-close"></i></button>
                 <button class="btn btn-light col-5" (click)="loadCajas()"><i class="fas fa-sync"></i></button>
@@ -44,7 +44,7 @@
         </div>
     </a>
     <div class="main row">
-        <button class="btn btn-light col-5"><i class="fas fa-user" data-toggle="tooltip" data-placement="bottom" title="Login"></i></button>
+        <button class="btn btn-light col-5" routerLink="/login"><i class="fas fa-user" data-toggle="tooltip" data-placement="bottom" title="Login"></i></button>
         <button class="btn btn-light col-5" (click)="saveCajas()" data-toggle="tooltip" data-placement="bottom" title="Guardar Pizarra"><i class="far fa-save"></i></button>
         <button class="btn btn-light col-5" (click)="clearBoard()" data-toggle="tooltip" data-placement="bottom" title="Vaciar Pizarra"><i class="far fa-window-close"></i></button>
         <button class="btn btn-light col-5" (click)="loadCajas()" data-toggle="tooltip" data-placement="bottom" title="Cargar Cajas"><i class="fas fa-sync"></i></button>
