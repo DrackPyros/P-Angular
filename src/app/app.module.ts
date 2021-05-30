@@ -8,6 +8,7 @@ import { BoardComponent } from './board/board.component';
 import { InfoComponent } from './info/info.component';
 import { ErrorComponent } from './error/error.component';
 import { PaletteComponent } from './palette/palette.component';
+import { LoginComponent } from './login/login.component';
 
 import { CajaComponent } from './caja/caja.component';
 import { CajaFrameComponent } from './caja-frame/caja-frame.component';
@@ -18,8 +19,10 @@ import { FormsModule } from '@angular/forms';
 import { EventEmitterService } from './event-emitter.service';
 
 import { SafeHtmlPipeService } from './safe-html-pipe.service';
-import { LoginComponent } from './login/login.component';
 
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase) //firebase por el nombre de la variable de environments.ts
   ],
   providers: [
       EventEmitterService

@@ -1,5 +1,6 @@
 import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { EventEmitterService } from '../event-emitter.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CajaComponent } from '../caja/caja.component';
 import { CajaFrameComponent } from '../caja-frame/caja-frame.component';
@@ -16,20 +17,25 @@ declare var $: any;
 export class BoardComponent{
 
     id: number = 1;
+    r: string;
 
     @ViewChild('background', { read: ViewContainerRef }) background!: ViewContainerRef;
 
 
-    constructor(private resolver: ComponentFactoryResolver, private eventEmitterService: EventEmitterService) {
+    constructor(
+        private resolver: ComponentFactoryResolver, 
+        private eventEmitterService: EventEmitterService,
+        private _route: ActivatedRoute,
+        private _router: Router) {
     }
     
     ngOnInit() {   
-        // Intento de cargar caja cuando se inicia
-        // if (!localStorage.getItem("x")){
-        //     console.log("f5");  
-        //     this.crearCaja(1);
-        //     this.id ++;
-        // }
+        this.r = this._route.snapshot.paramMap.get("si"); //Reload para funcionar cajas despues de routing
+        if(this.r != null){
+            let z = (window.location.href)
+            z = z.slice(0, -5);
+            window.location.assign(z);
+        }
 
         if (this.eventEmitterService.subsVar==undefined) {    
           this.eventEmitterService.subsVar = this.eventEmitterService.    
@@ -39,7 +45,7 @@ export class BoardComponent{
         }
     } 
     
-    ngAfterViewInit(): void {
+    ngAfterViewInit(): void { // Media queries del mercadona
         if(document.body.clientWidth > 1600){
             let b = document.getElementsByTagName("app-board");
             b[0].className = "col-11";

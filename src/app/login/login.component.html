@@ -1,3 +1,22 @@
 <div class="base">
-    <p>login works!</p>
+    <div class="f">
+        <div *ngIf="c; else elseBlock">
+            <form #formUsr="ngForm" (ngSubmit)="onSubmit(1)">
+                <h2>Log in</h2>
+                <tr><td><label for="nombre">Usuario: </label></td><td> <input type="text" id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="n"></td></tr>
+                <tr><td><label for="pwd">Password: </label></td><td><input type="text" id="pwd" name="pwd" #pwd="ngModel" [(ngModel)]="p"></td></tr>
+                <tr><input class="btn btn-dark" type="submit" value="Validar"></tr>
+            </form>
+            <button class="btn btn-primary" (click)="cambiar()">Crear usuario</button>
+        </div>
+        <ng-template #elseBlock>
+            <form #formUsr="ngForm" (ngSubmit)="onSubmit(2)">
+                <h2>Crear usuario</h2>
+                <tr><td><label for="nombre">Usuario: </label></td><td> <input type="text" id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="n"></td></tr>
+                <tr><td><label for="pwd">Password: </label></td><td><input type="text" id="pwd" name="pwd" #pwd="ngModel" [(ngModel)]="p"></td></tr>
+                <tr><input class="btn btn-dark" type="submit" value="Validar"></tr>
+            </form>
+            <button class="btn btn-primary" (click)="cambiar()">Login</button>
+        </ng-template>
+	</div>
 </div>

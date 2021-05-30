@@ -1,8 +1,0 @@
-{
-    "bbdd": "mysql",
-    "ruta": "localhost",
-    "dbname": "blog",
-    "usr": "root",
-    "pwd": ""
-    
-}

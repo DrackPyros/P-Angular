@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventEmitterService } from '../event-emitter.service';
+import { FirebaseService } from "../firebase.service";
+
 declare var $: any;
 
 
@@ -11,9 +13,14 @@ declare var $: any;
 export class MenuComponent implements OnInit{
 
     public condition = true;
+    public login: boolean; 
+    public usr: string;
+    public si : boolean = true; // reload board
 
 
-    constructor(private eventEmitterService: EventEmitterService) {
+    constructor(private eventEmitterService: EventEmitterService, private db:FirebaseService) {
+        this.usr = localStorage.getItem('usr');
+        this.login = db.log;
     }
 
     ngOnInit(): void{        
@@ -21,14 +28,13 @@ export class MenuComponent implements OnInit{
             $('[data-toggle="tooltip"]').tooltip()
         })
     }
-    // Intento de cargar cajas al inicio
-    // ngAfterViewInit(): void {
-    //     if (localStorage.getItem("x")){
-    //         console.log("funciona");
-    //         this.loadCajas();
-    //     }
-    // }
     
+    cerrarSesion(){
+        localStorage.removeItem('usr');
+        this.login = false;
+        console.log(this.login)
+    }
+
     clearBoard(){
         var canvas = document.getElementById("background");
 
@@ -38,9 +44,9 @@ export class MenuComponent implements OnInit{
     }
 
     saveCajas(){
-        if(localStorage.getItem("x")){
-            window.localStorage.clear();
-        }
+        // if(localStorage.getItem("x")){
+        //     window.localStorage.clear();
+        // }
         var c = document.getElementsByClassName("draggable");
         var wi = [];
         var he = [];
@@ -65,6 +71,7 @@ export class MenuComponent implements OnInit{
             url[el] = m[1].innerHTML;
 
         }
+        console.log(he);
         localStorage.setItem("wi", wi.toString());
         localStorage.setItem("he", he.toString());
         localStorage.setItem("x", x.toString());
@@ -72,10 +79,14 @@ export class MenuComponent implements OnInit{
         localStorage.setItem("tipo", tipo.toString());
         localStorage.setItem("url", url.toString());
 
+        this.db.setCajas();
+
     }
 
     loadCajas(){
         this.clearBoard();
+
+        this.db.getCajas();
 
         tipo = localStorage.getItem("tipo");
         var tipo = tipo.split(",");
