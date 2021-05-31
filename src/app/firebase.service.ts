@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from "@angular/fire/database";
+import { EventEmitterService } from './event-emitter.service';
+import * as CryptoJS from 'crypto-js';
+
+// declare let CryptoJS: any;
 
 @Injectable({
     providedIn: 'root'
@@ -11,14 +15,16 @@ export class FirebaseService {
     public log: boolean; 
 
 
-    constructor( private db: AngularFireDatabase ) { 
-        this.a = db.list("Usuarios").snapshotChanges();
-        let usr = localStorage.getItem('usr');
-        if(usr != null){
-            this.log = true;
-        }
-        else
-            this.log = false;
+    constructor( private db: AngularFireDatabase, 
+        private eventEmitterService: EventEmitterService ) { 
+
+            this.a = db.list("Usuarios").snapshotChanges();
+            let usr = localStorage.getItem('usr');
+            if(usr != null){
+                this.log = true;
+            }
+            else
+                this.log = false;
     }
 
     public leerDB (){
@@ -31,7 +37,9 @@ export class FirebaseService {
             for( let c in data ){
 
                 if (data[c].key == usr){
-                    if(data[c].payload.val().pwd == pwd){            
+                    pwd = CryptoJS.MD5(pwd).toString();
+
+                    if(data[c].payload.val().pwd === pwd){            
                         localStorage.setItem("usr", usr);
                         this.log = true;
                         salir = false;
@@ -54,11 +62,11 @@ export class FirebaseService {
 
                 if (data[c].key == usr){
                     salir = false;
-                    // console.log(salir);
                 }
             }
     
             if(salir == true){
+                pwd = CryptoJS.MD5(pwd).toString();
                 this.db.list("Usuarios").set(usr, {"pwd": pwd});
                 localStorage.setItem("usr", usr);
                 location.reload();
@@ -95,18 +103,14 @@ export class FirebaseService {
                 tipo[i] = (data[c].payload.val().tipo);      
                 i++;          
             }
+            localStorage.setItem("wi", wi.toString());
+            localStorage.setItem("he", he.toString());
+            localStorage.setItem("x", x.toString());
+            localStorage.setItem("y", y.toString());
+            localStorage.setItem("tipo", tipo.toString());
+            localStorage.setItem("url", url.toString());
+            this.eventEmitterService.setsus();
         })
-        let p = JSON.stringify(he);
-        console.log(he);
-        console.log(p);
-        console.log(typeof(p));
-        console.log(typeof(he));
-        localStorage.setItem("wi", wi.toString());
-        localStorage.setItem("he", he.toString());
-        localStorage.setItem("x", x.toString());
-        localStorage.setItem("y", y.toString());
-        localStorage.setItem("tipo", tipo.toString());
-        localStorage.setItem("url", url.toString());
     }
 
     setCajas(){

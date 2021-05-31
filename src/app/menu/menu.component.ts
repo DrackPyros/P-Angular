@@ -18,9 +18,11 @@ export class MenuComponent implements OnInit{
     public si : boolean = true; // reload board
 
 
-    constructor(private eventEmitterService: EventEmitterService, private db:FirebaseService) {
-        this.usr = localStorage.getItem('usr');
-        this.login = db.log;
+    constructor(
+        private eventEmitterService: EventEmitterService,
+        private db:FirebaseService) {
+            this.usr = localStorage.getItem('usr');
+            this.login = db.log;
     }
 
     ngOnInit(): void{        
@@ -71,7 +73,8 @@ export class MenuComponent implements OnInit{
             url[el] = m[1].innerHTML;
 
         }
-        console.log(he);
+        // console.log(he);
+        // console.log(typeof(he));
         localStorage.setItem("wi", wi.toString());
         localStorage.setItem("he", he.toString());
         localStorage.setItem("x", x.toString());
@@ -83,25 +86,28 @@ export class MenuComponent implements OnInit{
 
     }
 
-    loadCajas(){
+    async loadCajas(){
         this.clearBoard();
-
         this.db.getCajas();
+        setTimeout(()=>{
+            this.eventEmitterService.getsus().subscribe(val =>{
 
-        tipo = localStorage.getItem("tipo");
-        var tipo = tipo.split(",");
+                tipo = localStorage.getItem("tipo");
+                var tipo = tipo.split(",");
 
-        for(let i = 0; i< tipo.length; i++){
+                for(let i = 0; i< tipo.length; i++){
 
-            if(tipo[i] == "url"){
-                this.NewCaja(1, true, i);
-            }
-            else if(tipo[i] == "frame"){
-                this.NewCaja(2, true, i);
-            }
-            else
-                this.NewCaja(3, true, i);
-        }
+                    if(tipo[i] == "url"){
+                        this.NewCaja(1, true, i);
+                    }
+                    else if(tipo[i] == "frame"){
+                        this.NewCaja(2, true, i);
+                    }
+                    else
+                        this.NewCaja(3, true, i);
+                }
+            });
+        },1000);
     }
 
     NewCaja(i: number, cargar: boolean, id: number = null){
