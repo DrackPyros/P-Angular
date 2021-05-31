@@ -64,15 +64,17 @@ export class FirebaseService {
                     salir = false;
                 }
             }
-    
+            console.log(salir);
             if(salir == true){
                 pwd = CryptoJS.MD5(pwd).toString();
                 this.db.list("Usuarios").set(usr, {"pwd": pwd});
                 localStorage.setItem("usr", usr);
                 location.reload();
+                var c = false
             }
-            else
+            if(c == true){
                 alert("Usuario existente");
+            }
         })
     }
 
