@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngAfterViewInit(): void {
-        if(document.body.clientWidth > 1600){
+        if(document.body.clientWidth > 1700){
             let b = document.getElementsByTagName("app-login");
             b[0].className = "col-11";
         }

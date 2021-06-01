@@ -20,7 +20,7 @@ export class PaletteComponent implements OnInit {
     }
 
     ngAfterViewInit(): void {
-        if(document.body.clientWidth > 1600){
+        if(document.body.clientWidth > 1700){
             let b = document.getElementsByTagName("app-palette");
             b[0].className = "col-11";
         }

@@ -14,7 +14,7 @@ export class ErrorComponent implements OnInit {
     // b[0].className = "col-11";
   }
   ngAfterViewInit(): void {
-    if(document.body.clientWidth > 1600){
+    if(document.body.clientWidth > 1700){
         let b = document.getElementsByTagName("app-error");
         b[0].className = "col-11";
     }

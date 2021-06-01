@@ -157,6 +157,7 @@
         box-shadow: 0px 0px 5px;
         border-radius: 15px;
         text-align: center;
+        min-width: 120px;
     }
 }
 .main{
@@ -178,12 +179,12 @@
         margin: 4px;
     }
 }
-@media (max-width: 1600px) {
+@media (max-width: 1700px) {
     #menu{
         display: none;
     }
 }
-@media (min-width: 1600px) {
+@media (min-width: 1700px) {
     nav{
         display: none;
     }

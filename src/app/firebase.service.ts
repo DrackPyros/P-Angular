@@ -77,40 +77,45 @@ export class FirebaseService {
     }
 
     getCajas(){
-        var wi = [];
-        var he = [];
-        
-        var x = [];
-        var y = [];
-        
-        var url = [];
-        var tipo = [];
-
         let key = localStorage.getItem("usr");
-        let m = this.db.list("Usuarios/"+key+"/cajas").snapshotChanges();
-        m.subscribe((data: any) =>{
 
-            let i = 0;
+        if(key != null){
 
-            for( let c in data ){
-                he[i] = (data[c].payload.val().heigth);
-                wi[i] = (data[c].payload.val().width);
+            var wi = [];
+            var he = [];
+            
+            var x = [];
+            var y = [];
+            
+            var url = [];
+            var tipo = [];
 
-                x[i] = (data[c].payload.val().x);
-                y[i] = (data[c].payload.val().y);
+            let key = localStorage.getItem("usr");
+            let m = this.db.list("Usuarios/"+key+"/cajas").snapshotChanges();
+            m.subscribe((data: any) =>{
 
-                url[i] = (data[c].payload.val().url);
-                tipo[i] = (data[c].payload.val().tipo);      
-                i++;          
-            }
-            localStorage.setItem("wi", wi.toString());
-            localStorage.setItem("he", he.toString());
-            localStorage.setItem("x", x.toString());
-            localStorage.setItem("y", y.toString());
-            localStorage.setItem("tipo", tipo.toString());
-            localStorage.setItem("url", url.toString());
-            this.eventEmitterService.setsus();
-        })
+                let i = 0;
+
+                for( let c in data ){
+                    he[i] = (data[c].payload.val().heigth);
+                    wi[i] = (data[c].payload.val().width);
+
+                    x[i] = (data[c].payload.val().x);
+                    y[i] = (data[c].payload.val().y);
+
+                    url[i] = (data[c].payload.val().url);
+                    tipo[i] = (data[c].payload.val().tipo);      
+                    i++;          
+                }
+                localStorage.setItem("wi", wi.toString());
+                localStorage.setItem("he", he.toString());
+                localStorage.setItem("x", x.toString());
+                localStorage.setItem("y", y.toString());
+                localStorage.setItem("tipo", tipo.toString());
+                localStorage.setItem("url", url.toString());
+                this.eventEmitterService.setsus();
+            })
+        }
     }
 
     setCajas(){
