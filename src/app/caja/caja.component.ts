@@ -91,6 +91,7 @@ export class CajaComponent implements OnInit {
 
         let d = document.createElement("p");
         d.classList.add("hidden");
+        d.style.display = "none";
         d.innerHTML = frase[aid];
 
         // Imports
@@ -120,6 +121,7 @@ export class CajaComponent implements OnInit {
 
         var url = document.createElement("p");
         url.classList.add("hidden");
+        url.style.display = "none";
         url.innerHTML = frase;
 
         // Imports

@@ -83,6 +83,7 @@ export class CajaFrameComponent implements OnInit {
         
         let d = document.createElement("p");
         d.classList.add("hidden");
+        d.style.display = "none";
         d.innerHTML = frase[aid];
 
         let c = box.getElementsByClassName("form");
@@ -143,6 +144,7 @@ export class CajaFrameComponent implements OnInit {
 
             let d = document.createElement("p");
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = url;
             
             let c = box.getElementsByClassName("form");

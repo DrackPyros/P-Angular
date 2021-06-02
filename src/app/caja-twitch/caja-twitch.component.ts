@@ -92,10 +92,12 @@ export class CajaTwitchComponent implements OnInit {
 
             let d = document.createElement("p"); //URL
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = frase[aid];  
 
             let p = document.createElement("p"); //Opción
-            p.classList.add("hidden");  
+            p.classList.add("hidden"); 
+            p.style.display = "none"; 
             p.innerHTML = "stream";
             
             // Crear frame
@@ -122,10 +124,12 @@ export class CajaTwitchComponent implements OnInit {
 
             let d = document.createElement("p");
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = frase[aid];  
 
             let p = document.createElement("p");
             p.className = "hidden";
+            p.style.display = "none";
             p.innerHTML = "chat";
             
             let frame = document.createElement("iframe");
@@ -141,10 +145,12 @@ export class CajaTwitchComponent implements OnInit {
 
             let d = document.createElement("p");
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = frase[aid];  
 
             let p = document.createElement("p");
             p.className = "hidden";
+            p.style.display = "none";
             p.innerHTML = "video";
             
             let frame = document.createElement("iframe");
@@ -179,10 +185,12 @@ export class CajaTwitchComponent implements OnInit {
         if (opcion == "Todo"){
             let d = document.createElement("p"); //URL
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = frase;  
 
             let p = document.createElement("p"); //Opción
             p.classList.add("hidden");  
+            p.style.display = "none";
             p.innerHTML = "stream";
             
             // Crear frame
@@ -210,10 +218,12 @@ export class CajaTwitchComponent implements OnInit {
         else if(opcion == "Chat"){
             let d = document.createElement("p");
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = frase;  
 
             let p = document.createElement("p");
             p.className = "hidden";
+            p.style.display = "none";
             p.innerHTML = "chat";
             
             let frame = document.createElement("iframe");
@@ -228,10 +238,12 @@ export class CajaTwitchComponent implements OnInit {
         else {
             let d = document.createElement("p");
             d.classList.add("hidden");
+            d.style.display = "none";
             d.innerHTML = frase;  
 
             let p = document.createElement("p");
             p.className = "hidden";
+            p.style.display = "none";
             p.innerHTML = "video";
             
             let frame = document.createElement("iframe");
