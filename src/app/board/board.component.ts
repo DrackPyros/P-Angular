@@ -33,7 +33,7 @@ export class BoardComponent{
         this.r = this._route.snapshot.paramMap.get("si"); //Reload para funcionar cajas despues de routing
         if(this.r != null){
             let z = (window.location.href)
-            z = z.slice(0, -5);
+            z = z.slice(0, -11);
             window.location.assign(z);
         }
 
