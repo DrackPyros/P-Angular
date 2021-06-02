@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
             var board = document.getElementsByTagName("app-login");
         }
 
-        if(this.innerWidth < 1600){
+        if(this.innerWidth < 1700){
             menu[0].classList.remove("col-1");
             board[0].classList.remove("col-11");
             this.cambio = true;
