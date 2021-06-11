@@ -21,13 +21,8 @@
     .menu-col{
         height: 400px;
         
-        div{
-            box-shadow: inset 0px 0px 5px 0px black;
-            height: 20%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        td{
+            height: 15vh;
             
             h2{
                 margin: 0 10px;
@@ -36,7 +31,13 @@
             input{
                 width: 60px;
                 height: 30px;
-                text-align: center;
+                padding: 0px;
+            }
+        }
+        .g{
+            text-align: center;
+            input{
+                padding: 6px 12px;
             }
         }
     }

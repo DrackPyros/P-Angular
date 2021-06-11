@@ -12,7 +12,7 @@ export class InfoComponent implements OnInit {
     ngOnInit(): void {
     }
     ngAfterViewInit(): void {
-        if(document.body.clientWidth > 1600){
+        if(document.body.clientWidth > 1700){
             let b = document.getElementsByTagName("app-info");
             b[0].className = "col-11";
         }

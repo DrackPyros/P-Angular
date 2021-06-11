@@ -2,37 +2,37 @@
     <div class="draggable row bg-light">
         <h1>Cambia los colores a tu gusto</h1>
         <div class="col-6 menu-col">
-            <div id="1">
-                <!-- Menu -->
-                <h2>Menu</h2>
-                <input type="color" name="color-menu" [(ngModel)]="color1">
-                <input type="text" style="width: 120px;" name="text-menu" [(ngModel)]="color1">
-            </div>
-    
-            <div id="2">
-                <!-- Fondo -->
-                <h2>Fondo</h2>
-                <input type="color" name="color-base" [(ngModel)]="color2">
-                <input type="text" style="width: 120px;" name="text-base" [(ngModel)]="color2">
-            </div>
-    
-            <div id="3">
-                <!-- Cajas -->
-                <h2>Cajas</h2>
-                <input type="color" name="color-window" [(ngModel)]="color3">
-                <input type="text" style="width: 120px;" name="text-window" [(ngModel)]="color3">
-            </div>
-    
-            <div id="4">
-                <!-- Botones -->
-                <h2>Botones</h2>
-                <input type="color" name="color-button" [(ngModel)]="color4">
-                <input type="text" style="width: 120px;" name="text-button" [(ngModel)]="color4">
-            </div>
-            <div id="5">
-                <!-- Botones -->
-                <h2>Guardar</h2>
-                <input type="submit" class="btn btn-dark" style="width: fit-content;" value="Guardar" (click)="color()">
+            <tr>
+                <td><h2>Menu</h2></td>
+                <td>
+                    <input type="color" name="color-menu" [(ngModel)]="color1">
+                    <input type="text" style="width: 120px;" name="text-menu" [(ngModel)]="color1">    
+                </td>
+            </tr>
+            <tr>
+                <td><h2>Fondo</h2></td>
+                <td>
+                    <input type="color" name="color-base" [(ngModel)]="color2">
+                    <input type="text" style="width: 120px;" name="text-base" [(ngModel)]="color2">    
+                </td>
+            </tr>
+            <tr>
+                <td><h2>Cajas</h2></td>
+                <td>
+                    <input type="color" name="color-window" [(ngModel)]="color3">
+                    <input type="text" style="width: 120px;" name="text-window" [(ngModel)]="color3">    
+                </td>
+            </tr>
+            <tr>
+                <td><h2>Botones</h2></td>
+                <td>
+                    <input type="color" name="color-button" [(ngModel)]="color4">
+                    <input type="text" style="width: 120px;" name="text-button" [(ngModel)]="color4">    
+                </td>
+            </tr>
+            <div class="g">
+                <!-- Guardar -->
+                <input type="submit" class="btn btn-dark" value="Guardar" (click)="color()">
             </div>
         </div>
         
